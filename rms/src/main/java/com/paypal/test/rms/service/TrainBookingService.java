@@ -21,25 +21,25 @@ public class TrainBookingService {
     @Autowired
     private BookingRepo bookingRepo;
     
-    @Autowired
-    Pricing pricing; 
+    /*@Autowired
+    Pricing pricing;*/ 
     
-    public String bookTrain(String source, String destination, Date date, String name) {
+    public String bookTrain(String source, String destination, String date, String name) {
         String reservation  = "";
         Train train = trainRepo.getTrain(source, destination, date);
         if(train!=null) {
-           BookingInfo bookingInfo =  trainRepo.bookTrain(train.getId());
+           BookingInfo bookingInfo =  trainRepo.bookTrain(train);
            
            if(bookingInfo!=null) {
                 reservation = randomNumber();
-                Double price = pricing.calculatePricing(bookingInfo);
-                bookingRepo.bookTicket(train, reservation, name, price);
+                //Double price = pricing.calculatePricing(bookingInfo);
+                bookingRepo.bookTicket(reservation,bookingInfo);
            }
         }
        return reservation; 
     }
     
-    public ReservationInfo getReservationInfo(String reservationId) {
+    public BookingInfo getReservationInfo(String reservationId) {
         return bookingRepo.getbooking(reservationId);
     }
     

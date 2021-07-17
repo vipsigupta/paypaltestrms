@@ -1,12 +1,20 @@
 package com.paypal.test.rms.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 
-import com.paypal.test.rms.dto.ReservationInfo;
-import com.paypal.test.rms.entities.Train;
+import com.paypal.test.rms.dto.BookingInfo;
 
 @Repository
-public abstract class BookingRepo {
-    public abstract boolean bookTicket(Train train,String reservationId,String name,Double price);
-    public abstract ReservationInfo getbooking(String reservationId);
+public class BookingRepo {
+    static Map<String,BookingInfo> bookingStatus  = new HashMap<String, BookingInfo>();
+    public boolean bookTicket(String reservationId,BookingInfo bookingInfo) {
+        bookingStatus.put(reservationId,bookingInfo);
+        return true;
+    }
+    public BookingInfo getbooking(String reservationId) {
+        return bookingStatus.get(reservationId);
+    }
 }

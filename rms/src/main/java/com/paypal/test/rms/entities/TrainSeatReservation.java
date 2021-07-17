@@ -1,15 +1,17 @@
 package com.paypal.test.rms.entities;
 
+import com.paypal.test.rms.config.SeatType;
+
 public class TrainSeatReservation {
-    private Seat seat;
+    private SeatType seat;
     private boolean isbooked;
     private int seatId;
     private int bookSourceId;
     private int bookDestinationId;
-    public Seat getSeat() {
+    public SeatType getSeat() {
         return seat;
     }
-    public void setSeat(Seat seat) {
+    public void setSeat(SeatType seat) {
         this.seat = seat;
     }
     public boolean isIsbooked() {

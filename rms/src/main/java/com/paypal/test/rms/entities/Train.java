@@ -7,28 +7,28 @@ import com.paypal.test.rms.config.TrainType;
 public class Train {
     
     private Integer id;
-    private Integer source;
-    private Integer destination;
-    private List<Integer> path;
+    private Destination source;
+    private Destination destination;
+    private List<Destination> path;
     private TrainLayout layout;
     private TrainType type;
     
-    public Integer getSource() {
+    public Destination getSource() {
         return source;
     }
-    public void setSource(Integer source) {
+    public void setSource(Destination source) {
         this.source = source;
     }
-    public Integer getDestination() {
+    public Destination getDestination() {
         return destination;
     }
-    public void setDestination(Integer destination) {
+    public void setDestination(Destination destination) {
         this.destination = destination;
     }
-    public List<Integer> getPath() {
+    public List<Destination> getPath() {
         return path;
     }
-    public void setPath(List<Integer> path) {
+    public void setPath(List<Destination> path) {
         this.path = path;
     }
     public TrainLayout getLayout() {
